@@ -582,7 +582,7 @@ if __name__ == "__main__":
     import webbrowser
 
     import uvicorn
-    host = os.environ.get("HOST", "127.0.0.1")
+    host = os.environ.get("HOST", "0.0.0.0" if "PORT" in os.environ else "127.0.0.1")
     port = int(os.environ.get("PORT", "8000"))
     if host in ("127.0.0.1", "localhost"):          # local run: open the browser for you
         threading.Timer(1.5, lambda: webbrowser.open(f"http://localhost:{port}")).start()
