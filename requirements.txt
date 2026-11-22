@@ -1,0 +1,7 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+xgboost>=2.0
+pandas>=2.0
+numpy>=1.26
+pydantic>=2.5
+PyJWT>=2.8

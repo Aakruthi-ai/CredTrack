@@ -1,0 +1,7 @@
+__pycache__
+*.pyc
+.jwt_secret
+app.db
+app/*.bak*
+.git
+.env

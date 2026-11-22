@@ -1,0 +1,18 @@
+# Free deploy on Render with no Docker: New > Blueprint > pick this repo.
+# Free instances sleep after ~15 minutes idle (first visit then takes ~30 s) and reset the SQLite file on restart,
+# so accounts and expenses are not kept. Fine for demos and judging.
+services:
+  - type: web
+    name: credtrack
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: HOST
+        value: 0.0.0.0
+      - key: JWT_SECRET
+        generateValue: true

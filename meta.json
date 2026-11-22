@@ -1,0 +1,88 @@
+{
+  "features": [
+    "CNT_CHILDREN",
+    "income",
+    "credit_amount",
+    "annuity",
+    "NAME_INCOME_TYPE",
+    "FLAG_MOBIL",
+    "FLAG_WORK_PHONE",
+    "FLAG_PHONE",
+    "FLAG_EMAIL",
+    "CNT_FAM_MEMBERS",
+    "years_since_phone_change",
+    "not_employed_flag",
+    "years_employed",
+    "annuity_missing",
+    "credit_to_income",
+    "debt_to_income",
+    "n_installments",
+    "late_payment_share",
+    "underpaid_share",
+    "avg_days_late",
+    "max_days_late",
+    "avg_payment_ratio",
+    "recent_late_share",
+    "no_history_flag"
+  ],
+  "income_types": [
+    "Businessman",
+    "Commercial associate",
+    "Maternity leave",
+    "Pensioner",
+    "State servant",
+    "Student",
+    "Unemployed",
+    "Working"
+  ],
+  "caps": {
+    "income": 900000.0,
+    "credit_amount": 2517300.0,
+    "annuity": 110047.5,
+    "CNT_CHILDREN": 4.0,
+    "CNT_FAM_MEMBERS": 6.0
+  },
+  "thresholds": {
+    "approve_below": 0.1,
+    "reject_above": 0.15
+  },
+  "rules": {
+    "max_instalment_share_of_income": 0.6,
+    "score_cap_when_rule_triggers": 650,
+    "max_loan_to_income": 15
+  },
+  "monotone_rules": {
+    "debt_to_income": 1,
+    "credit_to_income": 1,
+    "annuity": 1,
+    "income": -1,
+    "late_payment_share": 1,
+    "avg_days_late": 1,
+    "max_days_late": 1,
+    "underpaid_share": 1,
+    "recent_late_share": 1,
+    "avg_payment_ratio": -1
+  },
+  "test_auc": 0.6676,
+  "trained_on": "2026-11-18",
+  "inputs_excluded": [
+    "gender",
+    "age",
+    "education",
+    "applicant ID",
+    "simulated utility/e-wallet columns",
+    "bureau scores"
+  ],
+  "new_to_credit_profile": {
+    "n_installments": 13.0,
+    "late_payment_share": 0.0055,
+    "underpaid_share": 0.0042,
+    "avg_days_late": 0.0751,
+    "max_days_late": 0.9164,
+    "recent_late_share": 0.0027,
+    "avg_payment_ratio": 0.9977,
+    "scale": 0.0716,
+    "target_default_rate": 0.0803,
+    "note": "Reference history used for applicants with no repayment history. Re-run calibrate_new_to_credit.py after retraining."
+  }
+}
